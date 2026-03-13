@@ -3,11 +3,11 @@ const btnAdicionar = document.querySelector("#btnAdicionar");
 const mensagem = document.getElementById("mensagem");
 const listaTarefas = document.getElementById("listaTarefas");
 
-btnAdicionar.addEventListener("click", function(){
+btnAdicionar.addEventListener("click", function () {
 
     const tarefaAdicionada = inputTarefa.value.trim();
 
-    if(tarefaAdicionada === ""){ 
+    if (tarefaAdicionada === "") {
         mensagem.textContent = "Preencha os campos corretamente!";
         mensagem.className = "text-danger fw-bold";
         return;
@@ -15,7 +15,17 @@ btnAdicionar.addEventListener("click", function(){
 
     const adicionarTarefaLista = document.createElement("li");
     adicionarTarefaLista.textContent = tarefaAdicionada;
-    adicionarTarefaLista.className = "list-group-item";
+    adicionarTarefaLista.className = "list-group-item d-flex justify-content-between";
+
+    const botaoX = document.createElement("button")
+    botaoX.textContent = "X"
+    botaoX.className = "btn btn-danger";
+
+    botaoX.addEventListener("click", function(){
+        adicionarTarefaLista.remove();
+    });
+
+    adicionarTarefaLista.appendChild(botaoX);
 
     listaTarefas.appendChild(adicionarTarefaLista);
     inputTarefa.value = "";
@@ -23,4 +33,4 @@ btnAdicionar.addEventListener("click", function(){
     mensagem.textContent = "Sua tarefa foi adicionada com sucesso!";
     mensagem.className = "text-success fw-bold";
 
-});
+    });
