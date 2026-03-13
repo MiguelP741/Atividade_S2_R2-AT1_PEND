@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <title>Login Loja Espricio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <title>Lista de Tarefas</title>
 
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+      rel="stylesheet">
+</head>
 <body class="bg-light">
 
     <main class="container mt-5">
+        <h1 class="text-center mb-4">Loja Espricio</h1>
 
-        <h1 id="tituloLoja" class="text-center mb-4">Loja Espricio</h1>
-
-        <div class="card ">
+        <div class="card">
             <div class="card-body">
 
-                <h3 id="Home" class="text-center text-secondary">Carrinho</h3>
-
-                <h5 id="tituloCarrinho" class="text-dark mt-2">Seu carrinho:</h5>
-
-                <ul class="list-group" id="listaCarrinho"></ul>
-
-                <div class="input-group mb-3 mt-3">
-                    <button id="btnAdicionar" class="btn btn-primary btn-lg">
-                        Adicionar item
-                    </button>
-                    <span class="input-group-text ms-2" id="item">Item</span>
-                    <input type="text" class="form-control" placeholder="Escreva o nome de um item"
-                        id="itemAdicionado">
+                <div class="mb-3">
+                    <label class="form-label">Nova tarefa</label>
+                    <input 
+                      type="text" 
+                      id="inputTarefa" 
+                      class="form-control"
+                      placeholder="Digite a tarefa">
                 </div>
+
+                <button id="btnAdicionar" class="btn btn-primary">
+                    Adicionar
+                </button>
 
                 <hr>
 
                 <p id="mensagem" class="fw-bold"></p>
+
+                <ul id="listaTarefas" class="list-group mt-3">
+                </ul>
 
             </div>
         </div>
@@ -41,6 +42,4 @@
 
     <script src="script.js"></script>
 </body>
-
-</html>
-<!--  -->
+</html> 

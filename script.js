@@ -1,21 +1,26 @@
-let listaCarrinho = document.getElementById("listaCarrinho");
-let btnAdicionar = document.querySelector("#btnAdicionar");
-let mensagem = document.getElementById("mensagem");
-let itemAdicionado = document.getElementById("itemAdicionado")
+const inputTarefa = document.getElementById("inputTarefa");
+const btnAdicionar = document.querySelector("#btnAdicionar");
+const mensagem = document.getElementById("mensagem");
+const listaTarefas = document.getElementById("listaTarefas");
 
-btnAdicionar.addEventListener("click", () => {
+btnAdicionar.addEventListener("click", function(){
 
-    const item = itemAdicionado.value;
+    const tarefaAdicionada = inputTarefa.value.trim();
 
-    const adicionarItem = document.createElement("li");
+    if(tarefaAdicionada === ""){ 
+        mensagem.textContent = "Preencha os campos corretamente!";
+        mensagem.className = "text-danger fw-bold";
+        return;
+    }
 
-    adicionarItem.textContent = item;
+    const adicionarTarefaLista = document.createElement("li");
+    adicionarTarefaLista.textContent = tarefaAdicionada;
+    adicionarTarefaLista.className = "list-group-item";
 
-    listaCarrinho.appendChild(adicionarItem);
+    listaTarefas.appendChild(adicionarTarefaLista);
+    inputTarefa.value = "";
 
-    itemAdicionado.value = "";
-
-    mensagem.innerText = `Alteração feita com sucesso!`
-    mensagem.className = 'text-success fw-bold'
+    mensagem.textContent = "Sua tarefa foi adicionada com sucesso!";
+    mensagem.className = "text-success fw-bold";
 
 });
