@@ -1,11 +1,19 @@
-let nomeCliente = document.getElementById("nomeCliente");
-let btnAlterar = document.querySelector("#btnAlterar");
+let listaCarrinho = document.getElementById("listaCarrinho");
+let btnAdicionar = document.querySelector("#btnAdicionar");
 let mensagem = document.getElementById("mensagem");
-let nomeAlterado = document.querySelector("#nomeAlterado")
+let itemAdicionado = document.getElementById("itemAdicionado")
 
-btnAlterar.addEventListener("click", ()=>{
+btnAdicionar.addEventListener("click", () => {
 
-    nomeCliente.innerText = `Olá ${nomeAlterado.value}, como vai?`;
+    const item = itemAdicionado.value;
+
+    const adicionarItem = document.createElement("li");
+
+    adicionarItem.textContent = item;
+
+    listaCarrinho.appendChild(adicionarItem);
+
+    itemAdicionado.value = "";
 
     mensagem.innerText = `Alteração feita com sucesso!`
     mensagem.className = 'text-success fw-bold'
